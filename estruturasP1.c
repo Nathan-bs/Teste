@@ -175,40 +175,40 @@
 // }
 //----------------------------------------------------------------------------------------------------------------------------------------
 //Tabela Hash
-typedef struct no{
-    int x;
-    struct no*prox;
-}no;
+// typedef struct no{
+//     int x;
+//     struct no*prox;
+// }no;
 
-typedef struct{
-    no *tabela;
-    int M, n;
-}th;
+// typedef struct{
+//     no *tabela;
+//     int M, n;
+// }th;
 
-th *cria_hash(int M){
-    th *hash = malloc(sizeof(th));
-    hash -> tabela = calloc(M, sizeof(no));
-    hash -> M = M;
-    return hash;
-}
+// th *cria_hash(int M){
+//     th *hash = malloc(sizeof(th));
+//     hash -> tabela = calloc(M, sizeof(no));
+//     hash -> M = M;
+//     return hash;
+// }
 
-int funcao_hash(int x, int M){
-    int a = 2, b = 3, p = 5;
-    return x%M;
-    // return ((a*x + b)%p)%M;
-}
+// int funcao_hash(int x, int M){
+//     int a = 2, b = 3, p = 5;
+//     return x%M;
+//     // return ((a*x + b)%p)%M;
+// }
 
-int busca(th *hash, int x){
-    int i = funcao_hash(x, hash -> M);
-    no *elem = hash -> tabela[i].prox;
-    while (elem != NULL){
-        if (elem -> x == x){
-            return 1;
-        }
-        elem = elem -> prox;
-    }
-    return 0;
-}
+// int busca(th *hash, int x){
+//     int i = funcao_hash(x, hash -> M);
+//     no *elem = hash -> tabela[i].prox;
+//     while (elem != NULL){
+//         if (elem -> x == x){
+//             return 1;
+//         }
+//         elem = elem -> prox;
+//     }
+//     return 0;
+// }
 //----------------------------------------------------------------------------------------------------------------------------------------
 int main(){
 //     int V[] = {13, 19, 9, 5, 12};
@@ -239,39 +239,39 @@ int main(){
 //----------------------------------------------------------------------------------------------------------------------------------------
 //     int resultado = quickSelect(V, 0, n - 1, 0);
 //     printf("%d", resultado);
-    int M = 7; // Tamanho da tabela hash
-    th *hash = cria_hash(M); // Cria a tabela hash
+    // int M = 7; // Tamanho da tabela hash
+    // th *hash = cria_hash(M); // Cria a tabela hash
 
-    // Inserção manual para teste
-    int valores[] = {10, 14, 5, 24, 3, 15, 18}; // Valores para armazenar na tabela
-    for (int i = 0; i < 5; i++) {
-        int idx = funcao_hash(valores[i], M);
+    // // Inserção manual para teste
+    // int valores[] = {10, 14, 5, 24, 3, 15, 18}; // Valores para armazenar na tabela
+    // for (int i = 0; i < 5; i++) {
+    //     int idx = funcao_hash(valores[i], M);
 
-        // Cria um novo nó
-        no *novo = malloc(sizeof(no));
-        novo->x = valores[i];
-        novo->prox = hash->tabela[idx].prox; // Insere no início da lista encadeada
-        hash->tabela[idx].prox = novo;
-    }
+    //     // Cria um novo nó
+    //     no *novo = malloc(sizeof(no));
+    //     novo->x = valores[i];
+    //     novo->prox = hash->tabela[idx].prox; // Insere no início da lista encadeada
+    //     hash->tabela[idx].prox = novo;
+    // }
 
-    // Exibe a tabela hash
-    printf("Tabela Hash:\n");
-    for (int i = 0; i < M; i++) {
-        printf("No %d: ", i);
-        no *elem = hash->tabela[i].prox;
-        while (elem) {
-            printf("%d -> ", elem->x);
-            elem = elem->prox;
-        }
-        printf("NULL\n");
-    }
+    // // Exibe a tabela hash
+    // printf("Tabela Hash:\n");
+    // for (int i = 0; i < M; i++) {
+    //     printf("No %d: ", i);
+    //     no *elem = hash->tabela[i].prox;
+    //     while (elem) {
+    //         printf("%d -> ", elem->x);
+    //         elem = elem->prox;
+    //     }
+    //     printf("NULL\n");
+    // }
 
     // Busca por valores
-    printf("\nBuscando valores:\n");
-    int chaves[] = {5, 10, 18}; // Testando valores na tabela
-    for (int i = 0; i < 3; i++) {
-        printf("Busca por %d: %s\n", chaves[i], busca(hash, chaves[i]) ? "Encontrado" : "Nao encontrado");
-    }
+    // printf("\nBuscando valores:\n");
+    // int chaves[] = {5, 10, 18}; // Testando valores na tabela
+    // for (int i = 0; i < 3; i++) {
+    //     printf("Busca por %d: %s\n", chaves[i], busca(hash, chaves[i]) ? "Encontrado" : "Nao encontrado");
+    // }
     return 0;
 }
 //----------------------------------------------------------------------------------------------------------------------------------------
